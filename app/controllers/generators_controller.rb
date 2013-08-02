@@ -4,7 +4,7 @@ class GeneratorsController < ApplicationController
   end
 
   def parse
-    @list_of_tweets = Generator.new(params[:twitter_handle], params[:number_of_paragraphs]).loop_through_tweets
+    @list_of_tweets = Generator.new(params[:twitter_handle], params[:number_of_paragraphs]).tweet_array
 
     render "home"
   end
