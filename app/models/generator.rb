@@ -1,8 +1,8 @@
 class Generator
   attr_accessor :tweet_array
 
-  def initialize(user, number_of_tweets)
-    @tweet_array = Twitter.user_timeline(user, count: number_of_tweets)
+  def initialize(user, number_of_paragraphs)
+    @tweet_array = Twitter.user_timeline(user, count: (number_of_paragraphs.to_i * 13))
     pull_tweets_from_tweet_array
     format_tweet
   end
@@ -18,7 +18,7 @@ class Generator
       remove_hashtags_and_ampersands
       remove_retweet_announcements
       remove_urls
-      capitalize_first_word_of_tweet!
+      capitalize_first_word_of_tweet
       convert_tweet_words_into_array #must be called last
     end
   end
@@ -43,7 +43,7 @@ class Generator
     @tweet.join(" ")
   end
 
-  def capitalize_first_word_of_tweet!
+  def capitalize_first_word_of_tweet
     @tweet[0].capitalize!
   end
 

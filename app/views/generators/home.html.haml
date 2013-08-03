@@ -12,4 +12,12 @@
     = submit_tag "Generate Ipsum"
 
 .container
-  =@list_of_tweets
+  =@list_of_tweets.length
+  -@list_of_tweets.each_with_index do |tweet, index|
+    =tweet
+    -if index % 13 == 0 && index != 0
+      %br
+      %br
+
+
+
