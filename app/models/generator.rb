@@ -44,7 +44,7 @@ class Generator
   end
 
   def capitalize_first_word_of_tweet
-    @tweet[0].capitalize!
+    @tweet[0].capitalize! if @tweet[0].present?
   end
 
 end
