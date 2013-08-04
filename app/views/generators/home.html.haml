@@ -10,14 +10,17 @@
     .centered_input= text_field_tag :number_of_paragraphs
     %br
     = submit_tag "Generate Ipsum"
+  = notice
+
 
 .container
-  =@list_of_tweets.length
-  -@list_of_tweets.each_with_index do |tweet, index|
-    =tweet
-    -if index % 13 == 0 && index != 0
-      %br
-      %br
+  -if @list_of_tweets.present?
+    =@list_of_tweets.length
+    -@list_of_tweets.each_with_index do |tweet, index|
+      =tweet
+      -if index % 13 == 0 && index != 0
+        %br
+        %br
 
 
 
