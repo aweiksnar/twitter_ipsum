@@ -14,12 +14,12 @@ class Generator
   def format_tweet
     @tweet_array.map! do |tweet|
       @tweet = tweet
-      split_tweet_into_words
+      split_tweet_into_words #called first
       remove_hashtags_and_ampersands
       remove_retweet_announcements
       remove_urls
       capitalize_first_word_of_tweet
-      convert_tweet_words_into_array #must be called last
+      convert_tweet_words_into_array #called last
     end
   end
 
