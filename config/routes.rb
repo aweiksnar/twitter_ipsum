@@ -1,5 +1,7 @@
 TwitterIpsum::Application.routes.draw do
 
+  root to: "generators#home"
+
   get "/generator", to: "generators#home", as: "generator"
 
   post "/generator", to: "generators#parse"
