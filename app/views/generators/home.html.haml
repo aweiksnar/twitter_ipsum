@@ -7,7 +7,16 @@
     .centered_input= text_field_tag :twitter_handle
 
     = label_tag :number_of_paragraphs, "How Many Paragraphs?", class: "large_form_text"
-    .centered_input= text_field_tag :number_of_paragraphs
+
+    -(1..13).each do |i|
+      -if i < 10
+        .centered_input= label_tag(:number_of_paragraphs, i.to_s, class: "radio_number")
+      -else
+        .centered_input= label_tag(:number_of_paragraphs, i.to_s, class: "double_digit_radio_number")
+      - i += 1
+    %br
+    -(1..13).each do |i|
+      .centered_input= radio_button_tag(:number_of_paragraphs, i.to_s)
     %br
     = submit_tag "Generate Ipsum"
   %p#notice

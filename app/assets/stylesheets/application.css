@@ -32,3 +32,16 @@
 #notice {
   color: #f2230d;
 }
+
+.radio_number {
+  margin-right: 5.5px;
+  margin-left: 5.5px;
+}
+
+.double_digit_radio_number {
+  margin-right: 2.1px;
+  margin-left: 2.1px;
+}
+
+
+
