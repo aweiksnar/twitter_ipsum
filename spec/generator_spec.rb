@@ -7,4 +7,10 @@ describe Generator do
       expect(g.tweet_array.length).to eq(3*13)
     end
   end
+
+  context "when altering an array of tweets" do
+    before :each do
+      @tweet_array = Generator.stub(:new).with(@user, '10').and_return([tweet_array])
+    end
+  end
 end

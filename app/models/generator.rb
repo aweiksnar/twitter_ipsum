@@ -15,7 +15,8 @@ class Generator
     @tweet_array.map! do |tweet|
       @tweet = tweet
       split_tweet_into_words #called first
-      remove_hashtags_and_ampersands
+      remove_character_from_word("@")
+      remove_character_from_word("#")
       remove_retweet_announcements
       remove_urls
       capitalize_first_word_of_tweet
@@ -27,8 +28,8 @@ class Generator
     @tweet = @tweet.split(" ")
   end
 
-  def remove_hashtags_and_ampersands
-    @tweet.map {|word| word[0] = "" if word[0] == "#" || word[0] == "@" }
+  def remove_character_from_word(character)
+    @tweet.map {|word| word[word.index(character)] = "" if word.include? character }
   end
 
   def remove_retweet_announcements
